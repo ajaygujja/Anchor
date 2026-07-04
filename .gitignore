@@ -43,3 +43,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase secrets — service account keys must never be committed (repo is public-ready)
+*service-account*.json
+*-adminsdk-*.json
+.env
+.env.*
+.firebase/
