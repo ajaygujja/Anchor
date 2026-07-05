@@ -48,6 +48,9 @@ dev_dependencies:
   # Lints come from `very_good_analysis` (stricter than flutter_lints),
   # activated in `analysis_options.yaml`.
   bloc_test: ^10.0.0
+  # Test-only in-memory Firestore for repository DTO/query tests (spec §9).
+  # Never shipped in a build, so it carries no web cold-start weight.
+  fake_cloud_firestore: ^4.0.0
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.5

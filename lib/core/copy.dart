@@ -13,6 +13,22 @@ abstract final class Copy {
   /// Shown quietly when sign-in fails for a non-cancellation reason.
   static const signInFailed = "Couldn't sign in. Try again.";
 
-  /// Placeholder home copy until the dashboard lands (spec §11 Phase 2).
-  static const dashboardComingSoon = 'Your habits will live here.';
+  // Dashboard (spec §2.2B).
+  static const dashboardEmptyTitle = 'One habit is enough to start.';
+  static const addFirstHabit = 'Add your first habit';
+
+  // Manage habits (spec §2.2D).
+  static const manageHabits = 'Manage habits';
+  static const addHabit = 'Add habit';
+  static const editHabit = 'Edit habit';
+  static const habitNameLabel = 'Habit name';
+  static const habitColorLabel = 'Colour';
+  static const save = 'Save';
+  static const archive = 'Archive';
+  static const restore = 'Restore';
+  static const archivedSection = 'Archived';
+  static const manageEmpty = 'No habits yet.';
+
+  /// Shown quietly when a habit operation fails.
+  static const habitActionFailed = "Couldn't save that. Try again.";
 }

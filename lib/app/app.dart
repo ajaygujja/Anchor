@@ -3,6 +3,7 @@ import 'package:anchor/app/router.dart';
 import 'package:anchor/core/copy.dart';
 import 'package:anchor/core/theme/theme.dart';
 import 'package:anchor/domain/repositories/auth_repository.dart';
+import 'package:anchor/domain/repositories/habit_repository.dart';
 import 'package:anchor/features/auth/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,8 +18,15 @@ class AnchorApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider<AuthRepository>.value(
-      value: dependencies.authRepository,
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<AuthRepository>.value(
+          value: dependencies.authRepository,
+        ),
+        RepositoryProvider<HabitRepository>.value(
+          value: dependencies.habitRepository,
+        ),
+      ],
       child: BlocProvider(
         create: (context) =>
             AuthBloc(dependencies.authRepository)
