@@ -2,7 +2,7 @@
 ///
 /// Repositories translate raw exceptions into these types so the UI never sees
 /// a `FirebaseException` directly (spec §5.1).
-sealed class Failure {
+sealed class Failure implements Exception {
   const Failure();
 }
 

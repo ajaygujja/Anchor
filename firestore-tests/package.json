@@ -1,0 +1,14 @@
+{
+  "name": "anchor-firestore-rules-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Security-rules tests for Anchor, run against the Firestore emulator.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^4.0.1",
+    "firebase": "^11.0.0"
+  }
+}

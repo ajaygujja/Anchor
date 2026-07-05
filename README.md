@@ -24,6 +24,13 @@ flutter run -d chrome --dart-define=USE_EMULATORS=true
 Emulators are the dev environment — fake data, works offline, resets freely.
 The real Firebase project is production only.
 
+Security-rules tests (Node, run against the Firestore emulator; needs JDK 21+):
+
+```bash
+cd firestore-tests && npm install
+firebase emulators:exec --only firestore --project anchor-rules-test "npm test"
+```
+
 ## Deploy
 
 ```bash
