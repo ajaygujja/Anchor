@@ -1,9 +1,35 @@
 rules_version = '2';
-
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if false;
+
+    match /users/{uid}/habits/{habitId} {
+      allow read, delete: if isOwner(uid);
+      allow create, update: if isOwner(uid) && validHabit();
+
+      match /entries/{dateId} {
+        allow read, delete: if isOwner(uid);
+        allow create, update: if isOwner(uid) && validEntry(dateId);
+      }
+    }
+
+    match /{document=**} { allow read, write: if false; }  // default deny
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+    function validHabit() {
+      let d = request.resource.data;
+      return d.name is string && d.name.size() >= 1 && d.name.size() <= 60
+          && d.archived is bool
+          && d.sortOrder is int;
+    }
+    function validEntry(dateId) {
+      let d = request.resource.data;
+      return d.date == dateId
+          && dateId.matches('^\\d{4}-\\d{2}-\\d{2}$')
+          && d.done is bool
+          && (!('reflection' in d) || d.reflection == null
+              || (d.reflection is string && d.reflection.size() <= 2000));
     }
   }
 }
