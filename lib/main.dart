@@ -1,4 +1,5 @@
 import 'package:anchor/app/app.dart';
+import 'package:anchor/app/di.dart';
 import 'package:anchor/firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -28,5 +29,5 @@ Future<void> main() async {
     persistenceEnabled: true,
   );
 
-  runApp(const AnchorApp());
+  runApp(AnchorApp(dependencies: AppDependencies.production()));
 }

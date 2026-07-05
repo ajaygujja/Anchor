@@ -53,3 +53,6 @@ app.*.map.json
 
 # Local emulator data (dev "test DB" — never committed)
 .emulator-data/
+
+# Node deps for the Firestore rules tests
+firestore-tests/node_modules/
