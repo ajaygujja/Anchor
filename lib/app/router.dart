@@ -4,6 +4,7 @@ import 'package:anchor/app/splash_page.dart';
 import 'package:anchor/features/auth/bloc/auth_bloc.dart';
 import 'package:anchor/features/auth/view/sign_in_page.dart';
 import 'package:anchor/features/dashboard/view/dashboard_page.dart';
+import 'package:anchor/features/manage_habits/view/manage_habits_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,6 +14,7 @@ abstract final class Routes {
   static const splash = '/splash';
   static const signIn = '/sign-in';
   static const dashboard = '/';
+  static const manage = '/manage';
 }
 
 /// Builds the app router with an auth-driven redirect.
@@ -51,6 +53,10 @@ GoRouter createRouter(AuthBloc authBloc) {
       GoRoute(
         path: Routes.dashboard,
         builder: (context, state) => const DashboardPage(),
+      ),
+      GoRoute(
+        path: Routes.manage,
+        builder: (context, state) => const ManageHabitsPage(),
       ),
     ],
   );
