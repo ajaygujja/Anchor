@@ -1,0 +1,43 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Anchor — dev (emulators)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "flutterMode": "debug",
+      "toolArgs": ["--dart-define=USE_EMULATORS=true"]
+    },
+    {
+      "name": "Anchor — dev release (cold-start check, emulators)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "flutterMode": "release",
+      "toolArgs": ["--dart-define=USE_EMULATORS=true"]
+    },
+    {
+      "name": "Anchor — PROD (REAL DATABASE)",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "flutterMode": "debug"
+    },
+    {
+      "name": "Tests — all",
+      "type": "dart",
+      "request": "launch",
+      "program": "test/"
+    },
+    {
+      "name": "Tests — current file",
+      "type": "dart",
+      "request": "launch",
+      "program": "${file}"
+    }
+  ]
+}

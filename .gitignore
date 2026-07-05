@@ -50,3 +50,6 @@ app.*.map.json
 .env
 .env.*
 .firebase/
+
+# Local emulator data (dev "test DB" — never committed)
+.emulator-data/

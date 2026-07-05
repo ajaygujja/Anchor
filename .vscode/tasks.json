@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "emulators: start (persistent data)",
+      "type": "shell",
+      "command": "firebase emulators:start --import=./.emulator-data --export-on-exit",
+      "isBackground": true,
+      "presentation": {
+        "panel": "dedicated",
+        "reveal": "always"
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^(Error|error):\\s+(.*)$",
+          "severity": 1,
+          "message": 2
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Starting emulators",
+          "endsPattern": "All emulators ready"
+        }
+      }
+    },
+    {
+      "label": "emulators: wipe data",
+      "type": "shell",
+      "command": "rm -rf .emulator-data",
+      "problemMatcher": []
+    },
+    {
+      "label": "test: all",
+      "type": "shell",
+      "command": "flutter test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "verify: format + analyze + test",
+      "type": "shell",
+      "command": "dart format --output=none --set-exit-if-changed . && flutter analyze && flutter test",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
